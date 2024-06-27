@@ -25,3 +25,23 @@ export const checkCDI = (candidate: Candidate): void => {
     throw new Error("Experience not high enough for CDI contract");
   }
 };
+
+export const checkStage = (candidate: Candidate): void => {
+  if (!candidate.isStudent) {
+    throw new Error("Student status required for stage contract");
+  }
+}
+
+export const checkAlternance = (candidate: Candidate): void => {
+  if (!candidate.isStudent) {
+    throw new Error("Student status required for alternance contract");
+  }
+}
+
+export const checkInterim = (candidate: Candidate): void => {
+  // no check for interim contract
+}
+
+export const checkIndependant = (candidate: Candidate): void => {
+  // no check for independant contract
+};

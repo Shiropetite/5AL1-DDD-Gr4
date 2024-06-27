@@ -1,6 +1,6 @@
 import { Candidate } from "../candidate/candidate";
-import { ContractType, checkCDD, checkCDI } from "./contract-type";
-import { PositionType, checkCadrePosition } from "./position-type";
+import { ContractType, checkAlternance, checkCDD, checkCDI, checkIndependant, checkInterim, checkStage } from "./contract-type";
+import { PositionType, checkCadrePosition, checkDesignerPosition, checkDevPosition } from "./position-type";
 
 export type JobOffer = {
   id: number;
@@ -17,7 +17,20 @@ export const checkContract = (jobOffer: JobOffer, candidate: Candidate): void =>
     checkCDI(candidate);
     return;
   }
+  else if (jobOffer.contract === ContractType.STAGE) {
+    checkStage(candidate);
+    return;
+  }
+  else if (jobOffer.contract === ContractType.ALTERNANCE) {
+    checkAlternance(candidate);
+    return;
+  }
+  else if (jobOffer.contract === ContractType.INTERIM) {
+    checkInterim(candidate);
+    return;
+  }
   else if (jobOffer.contract === ContractType.INDEPENDANT) {
+    checkIndependant(candidate);
     return;
   }
 
@@ -30,9 +43,13 @@ export const checkPosition = (jobOffer: JobOffer, candidate: Candidate): void =>
     return;
   }
   else if (jobOffer.position === PositionType.DEV) {
+    checkDevPosition(candidate);
+    return;
+  }
+  else if (jobOffer.position === PositionType.DESIGNER) {
+    checkDesignerPosition(candidate);
     return;
   }
 
   throw new Error("Position type not supported");
 };
-

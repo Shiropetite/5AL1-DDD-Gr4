@@ -1,9 +1,13 @@
-import { createCandidacy } from './../model/candidate/candidacy';
 import { Candidacy } from '../model/candidate/candidacy';
-import { Candidate } from '../model/candidate/candidate';
-import { JobOffer, checkContract, checkPosition } from '../model/job-offer/job-offer';
+import { checkContract, checkPosition } from '../model/job-offer/job-offer';
+import { createCandidacy } from './candidacy-repository';
+import { findCandidateById } from './candidate-repository';
+import { findJobOfferById } from './job-offer-repository';
 
-export const apply = (jobOffer: JobOffer, candidate: Candidate): Candidacy | null => {
+export const apply = ({ jobOfferId, candidateId }: { jobOfferId: number, candidateId: number }): Candidacy | null => {
+  const jobOffer = findJobOfferById(jobOfferId);
+  const candidate = findCandidateById(candidateId);
+
   checkContract(jobOffer, candidate);
   checkPosition(jobOffer, candidate);
 
