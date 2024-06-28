@@ -53,11 +53,11 @@ const candidates: Candidate[] = [
   },
 ];
 
-export const findCandidateById = jest.fn((id: number): Candidate => {
-  const candidate = candidates.find(candidate => candidate.id === id);
+export const mockFindCandidateById = (candidateId: number): Candidate => {
+  const candidate = candidates.find(candidate => candidate.id === candidateId);
   if (!candidate) {
     throw new Error("Candidate not found");
   }
 
   return candidate;
-});
+};

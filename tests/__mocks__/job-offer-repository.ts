@@ -55,12 +55,12 @@ const jobOffers: JobOffer[] = [
   },
 ];
 
-export const findJobOfferById = jest.fn((id: number): JobOffer => {
-  const jobOffer = jobOffers.find(jobOffer => jobOffer.id === id);
+export const mockFindJobOfferById = (jobOfferId: number): JobOffer => {
+  const jobOffer = jobOffers.find(jobOffer => jobOffer.id === jobOfferId);
 
   if (!jobOffer) {
     throw new Error("Job offer not found");
   }
 
   return jobOffer;
-});
+};

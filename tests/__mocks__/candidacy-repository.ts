@@ -2,7 +2,7 @@ import { Candidacy } from "../../src/model/candidate/candidacy";
 
 export const candidacies: Candidacy[] = [];
 
-export const createCandidacy = jest.fn((candidateId: number, jobOfferId: number): Candidacy => {
+export const mockCreateCandidacy = (candidateId: number, jobOfferId: number): Candidacy => {
   const candidacy = {
     id: candidacies.length++,
     candidateId: candidateId,
@@ -12,4 +12,4 @@ export const createCandidacy = jest.fn((candidateId: number, jobOfferId: number)
   candidacies.push(candidacy);
 
   return candidacy;
-});
+};

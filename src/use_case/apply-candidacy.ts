@@ -1,11 +1,21 @@
 import { Candidacy } from '../model/candidate/candidacy';
-import { checkContract, checkPosition } from '../model/job-offer/job-offer';
-import { createCandidacy } from './candidacy-repository';
-import { findCandidateById } from './candidate-repository';
-import { findJobOfferById } from './job-offer-repository';
+import { Candidate } from '../model/candidate/candidate';
+import { JobOffer, checkContract, checkPosition } from '../model/job-offer/job-offer';
 
 // Application service
-export const apply = ({ jobOfferId, candidateId }: { jobOfferId: number, candidateId: number }): Candidacy | null => {
+export const apply = ({ 
+  jobOfferId, 
+  candidateId, 
+  findJobOfferById, 
+  findCandidateById, 
+  createCandidacy 
+}: { 
+  jobOfferId: number, 
+  candidateId: number, 
+  findJobOfferById: (jobOfferId: number) => JobOffer,
+  findCandidateById: (candidateId: number) => Candidate,
+  createCandidacy: (candidateId: number, jobOfferId: number) => Candidacy,
+}): Candidacy | null => {
   const jobOffer = findJobOfferById(jobOfferId);
   const candidate = findCandidateById(candidateId);
 
