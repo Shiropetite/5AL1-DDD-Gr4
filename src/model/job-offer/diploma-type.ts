@@ -1,3 +1,4 @@
+// Value Object
 export enum DiplomaType {
   "NONE" = 0,
   "BAC_2" = 2,

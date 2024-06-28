@@ -4,6 +4,7 @@ import { createCandidacy } from './candidacy-repository';
 import { findCandidateById } from './candidate-repository';
 import { findJobOfferById } from './job-offer-repository';
 
+// Application service
 export const apply = ({ jobOfferId, candidateId }: { jobOfferId: number, candidateId: number }): Candidacy | null => {
   const jobOffer = findJobOfferById(jobOfferId);
   const candidate = findCandidateById(candidateId);

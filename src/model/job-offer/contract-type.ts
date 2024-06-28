@@ -1,6 +1,7 @@
 import { Candidate } from "../candidate/candidate";
 import { DiplomaType } from "./diploma-type";
 
+// Value object
 export enum ContractType {
   "CDI",
   "CDD",
@@ -8,6 +9,10 @@ export enum ContractType {
   "ALTERNANCE",
   "INTERIM",
   "INDEPENDANT",
+}
+
+export const compareContracts = (c1: ContractType, c2: ContractType): boolean => {
+  return c1 === c2;
 }
 
 export const checkCDD = (candidate: Candidate): void => {

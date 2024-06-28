@@ -1,9 +1,4 @@
-import { JobOffer } from '../../src/model/job-offer/job-offer';
-import { Candidate } from '../../src/model/candidate/candidate';
-import { DiplomaType } from '../../src/model/job-offer/diploma-type';
 import { apply } from '../../src/use_case/apply-candidacy';
-import { ContractType } from '../../src/model/job-offer/contract-type';
-import { PositionType } from '../../src/model/job-offer/position-type';
 
 jest.mock('../../src/use_case/candidacy-repository', () => {
   return jest.requireActual('../__mocks__/candidacy-repository');
