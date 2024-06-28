@@ -10,6 +10,8 @@ export type JobOffer = {
   readonly contract: ContractType;
 };
 
+// Not used in this use case but needed for entity
+/* istanbul ignore next */
 export const compareJobOffers = (j1: JobOffer, j2: JobOffer): boolean => {
   return j1.id === j2.id;
 }

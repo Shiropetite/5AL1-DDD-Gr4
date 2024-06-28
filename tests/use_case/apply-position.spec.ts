@@ -13,7 +13,8 @@ describe('Candidacy creation position tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(10);
+    expect(candidacy?.candidateId).toBe(7);
   });
 
   it('Should create candidacy for "cadre position" when candidate has higher experience and diploma than required', () => {
@@ -25,7 +26,8 @@ describe('Candidacy creation position tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(10);
+    expect(candidacy?.candidateId).toBe(5);
   });
 
   it('Should create candidacy for "designer position" when candidate has required portfolio', () => {
@@ -37,7 +39,8 @@ describe('Candidacy creation position tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(9);
+    expect(candidacy?.candidateId).toBe(2);
   });
 
   it('Should create candidacy for "dev" when candidate apply', () => {
@@ -49,7 +52,8 @@ describe('Candidacy creation position tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(6);
+    expect(candidacy?.candidateId).toBe(4);
   });
  
   it('Should throw when candidate does not have required experience for "cadre position"', () => {

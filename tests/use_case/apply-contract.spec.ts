@@ -14,7 +14,8 @@ describe('Candidacy creation contract tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(5);
+    expect(candidacy?.candidateId).toBe(2);
   });
 
   it('Should create candidacy for "CDI" contract when candidate has higher diploma and experience than required', () => {
@@ -26,7 +27,8 @@ describe('Candidacy creation contract tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(5);
+    expect(candidacy?.candidateId).toBe(5);
   });
 
   it('Should create candidacy for "CDD" contract when candidate has required diploma', () => {
@@ -38,7 +40,8 @@ describe('Candidacy creation contract tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(1);
+    expect(candidacy?.candidateId).toBe(2);
   });
 
   it('Should create candidacy for "CDD" contract when candidate has higher diploma', () => {
@@ -50,7 +53,8 @@ describe('Candidacy creation contract tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(1);
+    expect(candidacy?.candidateId).toBe(1);
   });
 
   it('Should create candidacy for "Stage" contract when candidate is a student', () => {
@@ -62,7 +66,8 @@ describe('Candidacy creation contract tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(2);
+    expect(candidacy?.candidateId).toBe(1);
   });
 
   it('Should create candidacy for "Alternance" contract when candidate is a student', () => {
@@ -74,7 +79,8 @@ describe('Candidacy creation contract tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(4);
+    expect(candidacy?.candidateId).toBe(1);
   });
 
   it('Should create candidacy for "Interim" contract when candidate apply', () => {
@@ -86,7 +92,8 @@ describe('Candidacy creation contract tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(7);
+    expect(candidacy?.candidateId).toBe(4);
   });
 
   it('Should create candidacy for "Independant" contract when candidate apply', () => {
@@ -98,7 +105,8 @@ describe('Candidacy creation contract tests', () => {
       createCandidacy: mockCreateCandidacy
     });
     
-    expect(candidacy).not.toBeNull();
+    expect(candidacy?.jobOfferId).toBe(6);
+    expect(candidacy?.candidateId).toBe(4);
   });
 
   it('Should throw when candidate does not have required experience for "CDI" contract', () => {
